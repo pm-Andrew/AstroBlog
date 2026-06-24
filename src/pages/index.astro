@@ -9,6 +9,7 @@ const todos = [
 	"Finish Tutorial",
 	"Create a TODO Component",
 	"Iterate through color themes w/ current",
+	"",
 ];
 ---
 
@@ -22,6 +23,18 @@ const todos = [
 		<main>
 			<h1>Portfolio Redesign & Blog Addition</h1>
 			<h2>TODO</h2>
+			<ul>
+				{
+					todos.map((todo) => (
+						<li>
+							<label>
+								<input type="checkbox" />
+								<span>{todo}</span>
+							</label>
+						</li>
+					))
+				}
+			</ul>
 		</main>
 		<Footer />
 	</body>

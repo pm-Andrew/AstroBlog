@@ -1,10 +1,8 @@
 ---
 title: 'First post'
-author: 'Astro Learner'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 08 2022'
 heroImage: '../../assets/blog-placeholder-3.jpg'
-tags: ["astro", "blogging", "learning in public"]
 ---
 
 # My First Blog Post

@@ -1,17 +1,23 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+// Child / Presentational - rendering links & determines if link should be marked as active.
 
-type Props = HTMLAttributes<'a'>;
+import type { HTMLAttributes } from "astro/types"; // import generic type for link manipulation
 
-const { href, class: className, ...props } = Astro.props;
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
-const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
+// Creating a Prop
+type Props = HTMLAttributes<"a">;
+
+const { href, class: className, ...props } = Astro.props; // get the props
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, ""); // get current URL and replace subdirectory
+const subpath = pathname.match(/[^\/]+/g); // using regex to split the path
+const isActive = href === pathname || href === "/" + (subpath?.[0] || ""); // checking is link is active
 ---
 
+<!-- Rendering the Links w/ a directive to check if the link isActive -->
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
+	<!-- Child Compontent -->
 	<slot />
 </a>
+<!-- CSS Styles -->
 <style>
 	a {
 		display: inline-block;
